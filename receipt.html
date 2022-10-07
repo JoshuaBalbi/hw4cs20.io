@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>hw4HOTDOG</title>
+</head>
+<style>
+
+h1 {
+    font-size: 40;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: gray;
+}
+
+body {
+  font-size: 20;
+  color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-color: white;
+}
+</style>
+
+<body>
+
+<h1>Order Receipt</h1>
+
+<script>
+      Hanswer = prompt ("How many Hotdogs?");
+      Fanswer = prompt ("How many French Fries?");
+      Danswer = prompt ("How many Drinks?");
+
+      subTotal = (4.25 * Hanswer) + (2.6 * Fanswer) + (1.5*Danswer);
+      Tax = subTotal * .0625;
+      tsubTotal = subTotal + Tax;
+      document.write("<br>" + "# of Hot dogs: " + Hanswer);
+      document.write("<br>" + "# of French Fries: " + Fanswer);
+      document.write("<br>" + "# of Drinks: " + Danswer);
+      subTotal = rounded(subTotal);
+      document.write("<br>" + "subtotal: $" + subTotal);
+      Tax = rounded(Tax);
+      document.write("<br>" + "Taxes: $" + Tax);
+
+      if (tsubTotal < 20) {
+          document.write("<br>" + "Discount not applicable");
+          tsubTotal = rounded(tsubTotal);
+          document.write("<br>" + "Total: $" + tsubTotal);
+      }
+      else {
+          Discount = tsubTotal * .1;
+          Total = tsubTotal * .9;
+          Discount = rounded(Discount);
+          Total = rounded(Total);
+          document.write("<br>" + "Discount: $" + Discount);
+          document.write("<br>" + "Total: $" + Total);
+      }
+
+      function rounded(num) {
+          num = num * 100
+          num = Math.round(num);
+          num = num/100;
+          numStr = String(num);
+          if (numStr.split('.')[1].length < 2){
+              numStr = numStr + "0";
+          }
+          return numStr;
+      }
+
+</script>
+
+</body>
